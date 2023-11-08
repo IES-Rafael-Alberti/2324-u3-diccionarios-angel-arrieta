@@ -20,16 +20,18 @@ def control(datos: list) -> int:
     """
     Función encargado de controlar la adecuación de los datos introducidos
     ----------------------
-    datos: Información a guardar en el diccionario
+    datos: list
+        Información a guardar en el diccionario
 
-    return: Número devuelto dependiendo del error que se detecte,
-    devuelve 0 si no hay errores. Numeración de los errores:
-        1 - Se han introducido más o menos datos de los requeridos
-        2 - Hay caracteres no alfabeticos en el nombre
-        3 - Hay caracteres no digito en la edad
-        4 - Edad ilógica
-        5 - Hay caracteres no digito en el telefono
-        6 - Longitud del telefono no permitida
+    return: int
+        Número devuelto dependiendo del error que se detecte,
+        devuelve 0 si no hay errores. Numeración de los errores:
+            1 - Se han introducido más o menos datos de los requeridos
+            2 - Hay caracteres no alfabeticos en el nombre
+            3 - Hay caracteres no digito en la edad
+            4 - Edad ilógica
+            5 - Hay caracteres no digito en el telefono
+            6 - Longitud del telefono no permitida
 
     """
     fallo = 0
@@ -56,8 +58,11 @@ def agenda(datos: list) -> dict:
     """
     Función que convierte en un contacto los datos introducidos
     ------------------------------------------------------------
-    datos: Información a pasar al contacto
-    return: Contacto ya creado
+    datos: list
+        Información a pasar al contacto
+
+    return: dict
+        Contacto ya creado
     """
     claves = ["nombre", "edad", "dirección", "teléfono"]
     contacto = {}

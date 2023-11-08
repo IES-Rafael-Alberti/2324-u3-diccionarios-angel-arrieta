@@ -12,13 +12,16 @@ def control_stock(fruta: str, frutas: dict) -> int:
     """
     Función encargada de controlar la adecuación de los datos introducidos
     ----------------------
-    fruta: Información a consultar en la frutería
-    frutería: Stock disponible en la tienda
+    fruta: str
+        Información a consultar en la frutería
+    frutas: dict
+        Stock disponible en la tienda
 
-    return: Número devuelto dependiendo del error que se detecte,
-    devuelve 0 si no hay errores. Numeración de los errores:
-        1 - Hay caracteres no alfabéticos en la fruta
-        2 - No se encuentra esa fruta en la tienda
+    return: int
+        Número devuelto dependiendo del error que se detecte,
+        devuelve 0 si no hay errores. Numeración de los errores:
+            1 - Hay caracteres no alfabéticos en la fruta
+            2 - No se encuentra esa fruta en la tienda
     """
     fallo = 0
     import re
@@ -33,13 +36,15 @@ def control_kg(kilos: str) -> int:
     """
     Función encargada de controlar la adecuación del peso introducido
     ----------------------
-    kilos: Peso a pedir en la frutería
+    kilos: str
+        Peso a pedir en la frutería
 
-    return: Número devuelto dependiendo del error que se detecte,
-    devuelve 0 si no hay errores. Numeración de los errores:
-        3 - Hay caracteres no dígitos en el peso
-        4 - Más de un punto '.' encontrado
-        5 - Peso demasiado chico para una sola fruta
+    return: int
+        Número devuelto dependiendo del error que se detecte,
+        devuelve 0 si no hay errores. Numeración de los errores:
+            3 - Hay caracteres no dígitos en el peso
+            4 - Más de un punto '.' encontrado
+            5 - Peso demasiado chico para una sola fruta
     """
     fallo = 0
     import re

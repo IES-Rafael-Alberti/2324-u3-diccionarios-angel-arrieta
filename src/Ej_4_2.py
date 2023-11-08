@@ -40,12 +40,14 @@ def control_fecha(fecha: list) -> int:
     ------------------
     fecha: list
         Fecha a cambiar de formato, el formato inicial debe ser DD/MM/AAAA
-        return: Número devuelto dependiendo del error que se detecte,
-    devuelve 0 si no hay errores. Numeración de los errores:
-        2 - El mes no entra dentro de los valores permitidos
-        3 - El día no entra dentro de los valores permitidos
-        4 - El año no es bisiesto, no hay 29 febrero
-        5 - Ese mes solo tiene 30 días
+
+    return: int
+        Número devuelto dependiendo del error que se detecte,
+        devuelve 0 si no hay errores. Numeración de los errores:
+            2 - El mes no entra dentro de los valores permitidos
+            3 - El día no entra dentro de los valores permitidos
+            4 - El año no es bisiesto, no hay 29 febrero
+            5 - Ese mes solo tiene 30 días
     """
     fallo = 0
     ano = fecha[2]
