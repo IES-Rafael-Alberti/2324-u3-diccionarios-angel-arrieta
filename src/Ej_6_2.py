@@ -13,9 +13,12 @@ def control_nombre(nombre: str) -> int:
     -------------
     nombre: str
         nombre a revisar
+
     return: int
-        0 - si el nombre es lógico.
-        1 - si el nombre contiene algún carácter que no sea alfabético, espacio y vocal mayúscula o minúscula con acento
+        Número devuelto dependiendo del error que se detecte,
+        devuelve 0 si no hay errores. Numeración de los errores:
+            0 - si el nombre es lógico.
+            1 - si el nombre contiene algún carácter que no sea alfabético, espacio y vocal mayúscula o minúscula con acento
     """
     fallo = 0
     import re
@@ -30,10 +33,13 @@ def control_edad(edad: str) -> int:
     -------------
     edad: str
         edad a revisar
+
     return: int
-        0 - si la edad es lógica
-        2 - si el formato de la edad no es correcto o si se encuentran carácteres no dígito
-        3 - si la edad no tiene sentido
+        Número devuelto dependiendo del error que se detecte,
+        devuelve 0 si no hay errores. Numeración de los errores:
+            0 - si la edad es lógica
+            2 - si el formato de la edad no es correcto o si se encuentran carácteres no dígito
+            3 - si la edad no tiene sentido
     """
     fallo = 0
     import re
@@ -50,14 +56,34 @@ def control_sexo(sexo: str) -> int:
     -------------
     sexo: str
         cadena a revisar
+
     return: int
-        0 - si el sexo es lógico
-        4 - si el sexo no es reconocible
+        Número devuelto dependiendo del error que se detecte,
+        devuelve 0 si no hay errores. Numeración de los errores:
+            0 - si el sexo es lógico
+            4 - si el sexo no es reconocible
     """
     fallo = 0
     import re
     if re.search("^hombre$|^mujer$", sexo) is None:
         fallo = 4
+    return fallo
+
+
+def control_telefono(telefono: str) -> int:
+    """
+    telefono: str
+
+    return: int
+        Número devuelto dependiendo del error que se detecte,
+        devuelve 0 si no hay errores. Numeración de los errores:
+        0 - si el teléfono es lógico
+        5 - si el teléfono no se adecua al formato [123456789]
+    """
+    fallo = 0
+    import re
+    if re.search("^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$", telefono) is None:
+        fallo = 5
     return fallo
 
 
@@ -79,19 +105,35 @@ if __name__ == "__main__":
         if error != 0:
             raise ValueError(error)
         informe_personal.update({"Nombre": nombre})
+        anadido = datacion(informe_personal)
+        print(anadido)
+
         edad = str(input("Edad del sujeto (3 dígitos máximo)\n> "))
         error = control_edad(edad)
         if error != 0:
             raise ValueError(error)
         informe_personal.update({"Edad": int(edad)})
+        anadido = datacion(informe_personal)
+        print(anadido)
+
         sexo = str(input("Sexo del sujeto (hombre o mujer)\n> "))
         error = control_sexo(sexo)
         if error != 0:
             raise ValueError(error)
         informe_personal.update({"Sexo": sexo})
+        anadido = datacion(informe_personal)
+        print(anadido)
+
         telefono = str(input("Teléfono del sujeto\n> "))
         error = control_telefono(telefono)
-        # TODO: handle de errores del telefono
+        if error != 0:
+            raise ValueError(error)
+        informe_personal.update({"Teléfono": telefono})
+        anadido = datacion(informe_personal)
+        print(anadido)
+
+        correo = str(input("Correo electrónico del sujeto\n> "))
+        error = control_correo(correo)
     except ValueError:
         if error == 1:
             print(f"{nombre} contiene carácteres ilógicos para un nombre")
@@ -101,4 +143,6 @@ if __name__ == "__main__":
             print(f"{edad} es una edad ilógica para un ser humano")
         elif error == 4:
             print(f"{sexo} no es un sexo reconocido por el programa (hombre o mujer)")
+        elif error == 5:
+            print(f"{telefono} no es un formato de telefono aceptado (Ejemplo: [123456789])")
 
