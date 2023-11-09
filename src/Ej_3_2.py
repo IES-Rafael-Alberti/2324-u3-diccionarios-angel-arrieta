@@ -25,7 +25,7 @@ def control_stock(fruta: str, frutas: dict) -> int:
     """
     fallo = 0
     import re
-    if re.search("[^a-z áéíóú]", fruta) is not None:
+    if re.search("[^a-z áéíóúñ]", fruta) is not None:
         fallo = 1
     elif frutas.get(fruta) is None:
         fallo = 2

@@ -41,7 +41,7 @@ def control(datos: list) -> int:
     telefono = datos[3]
     if len(datos) != 4:
         fallo = 1
-    elif re.search("[^a-zA-Z ÁáÉéÍíÓóÚú]", nombre) is not None:
+    elif re.search("[^a-zA-Z ÁáÉéÍíÓóÚúÑñ]", nombre) is not None:
         fallo = 2
     elif re.search("\D", edad) is not None:
         fallo = 3

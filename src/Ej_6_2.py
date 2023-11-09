@@ -31,7 +31,7 @@ def control(campo: str, info: str) -> int:
     fallo = 0
     import re
     if campo == "Nombre":
-        if re.search("[^A-Za-z ÁáÉéÍíÓóÚú]", info) is not None:
+        if re.search("[^A-Za-z ÁáÉéÍíÓóÚúÑñ]", info) is not None:
             fallo = 1
     elif campo == "Edad":
         if re.search("^[0-9]$|^[0-9][0-9]$|^[0-9][0-9][0-9]$", info) is None:
