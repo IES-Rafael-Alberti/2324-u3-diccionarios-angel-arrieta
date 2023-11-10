@@ -55,6 +55,8 @@ def control(campo: str, info: str) -> int:
             nombre, servicio = info.split("@")
             if re.search("[.]", servicio) is None:
                 fallo = 6
+            elif servicio.count(".") > 1:
+                fallo = 6
             else:
                 nombre_dominio, dominio = servicio.split(".")
                 if re.search("[^A-Za-z_.0-9-]", nombre) is not None:
