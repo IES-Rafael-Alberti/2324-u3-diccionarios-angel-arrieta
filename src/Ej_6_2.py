@@ -49,6 +49,8 @@ def control(campo: str, info: str) -> int:
     elif campo == "Correo electrónico":
         if re.search("@", info) is None:
             fallo = 6
+        elif info.count("@") > 1:
+            fallo = 6
         else:
             nombre, servicio = info.split("@")
             if re.search("[.]", servicio) is None:

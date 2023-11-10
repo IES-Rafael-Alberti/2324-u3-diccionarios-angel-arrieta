@@ -23,6 +23,7 @@ from src.Ej_6_2 import control, datacion
         ("Teléfono", "I2·456/8", 5),
         ("Correo electrónico", "a@a.a", 0),
         ("Correo electrónico", "a.arrieta03_soto@gmail.com", 0),
+        ("Correo electrónico", "a.arrieta@03_soto@gmail.com", 6),
         ("Correo electrónico", "a.arrieta03_sotogmail.com", 6),
         ("Correo electrónico", "a.arrieta03_soto@gmailcom", 6),
         ("Correo electrónico", "^ar¿[ri e]/a)03*soto@gmail.com", 6),
